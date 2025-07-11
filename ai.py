@@ -1,12 +1,13 @@
-﻿import os
-from langchain.chat_models import init_chat_model
+import os
+
 from dotenv import load_dotenv
+from langchain.chat_models import init_chat_model
 
 load_dotenv(".env")
 
-print( os.getenv("AZURE_OPENAI_API_KEY"))
-print( os.getenv("AZURE_OPENAI_ENDPOINT"))
-print( os.getenv("OPENAI_API_VERSION"))
+print(os.getenv("AZURE_OPENAI_API_KEY"))
+print(os.getenv("AZURE_OPENAI_ENDPOINT"))
+print(os.getenv("OPENAI_API_VERSION"))
 
 llm = init_chat_model(
     "azure_openai:gpt-4o-mini",

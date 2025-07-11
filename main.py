@@ -1,6 +1,7 @@
-from chatbot import stream_graph_updates
+from chatbot import chat
 
-def main():
+
+def main() -> None:
     print("Hello from agent!")
     while True:
         try:
@@ -8,15 +9,11 @@ def main():
             if user_input.lower() in ["quit", "exit", "q"]:
                 print("Goodbye!")
                 break
-            stream_graph_updates(user_input)
-        except:
-            # fallback if input() is not available
-            user_input = "What do you know about LangGraph?"
-            print("User: " + user_input)
-            stream_graph_updates(user_input)
-            break
-            
-            
-            
+            chat(user_input)
+        except OSError:
+            print("Error Detected, exiting...")
+            exit(1)
+
+
 if __name__ == "__main__":
     main()
